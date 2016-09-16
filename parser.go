@@ -58,7 +58,6 @@ func (s *state) resources() []*Resource {
 
 	for _, m := range s.Modules {
 		for _, k := range m.resourceKeys() {
-
 			// Terraform stores resources in a name->map map, but we need the name to
 			// decide which groups to include the resource in. So wrap it in a higher-
 			// level object with both properties.
@@ -88,7 +87,7 @@ func (ms *moduleState) resourceKeys() []string {
 	keys := make([]string, lk, lk)
 	i := 0
 
-	for k := range ms.ResourceStates {
+	for k := range ms.ResourceStates { //
 		keys[i] = k
 		i += 1
 	}

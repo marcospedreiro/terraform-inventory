@@ -1,8 +1,9 @@
 # Terraform Inventory
 
-[![Build Status](https://travis-ci.org/adammck/terraform-inventory.svg?branch=master)](https://travis-ci.org/adammck/terraform-inventory)
-[![GitHub release](https://img.shields.io/github/release/adammck/terraform-inventory.svg?maxAge=2592000)](https://github.com/adammck/terraform-inventory/releases)
-[![GitHub release](https://img.shields.io/homebrew/v/terraform-inventory.svg?maxAge=2592000)](http://braumeister.org/formula/terraform-inventory)
+[![Build Status](https://gh.riotgames.com/rcluster/terraform-inventory.svg?branch=master)](https://gh.riotgames.com/rcluster/terraform-inventory)
+[![GitHub release](https://gh.riotgames.com/rcluster/terraform-inventory/releases.svg?maxAge=2592000)](https://gh.riotgames.com/rcluster/terraform-inventory/releases)
+
+> This is the same as the [public repo](https://github.com/adammck/terraform-inventory) but includes change to get aws_network_interface ips from terraform in order to configure the Contrail gateway. The readme below will be left as it is on the public repo, private releases can be found [here](https://gh.riotgames.com/rcluster/terraform-inventory/releases).
 
 This is a little Go app which generates a dynamic [Ansible] [ansible] inventory
 from a [Terraform] [tf] state file. It allows one to spawn a bunch of instances

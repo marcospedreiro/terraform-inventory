@@ -134,12 +134,24 @@ func (r Resource) NameWithCounter() string {
 
 // Address returns the IP address of this resource.
 func (r Resource) Address() string {
+
+	switch r.resourceType {
+	case "aws_network_interface":
+		for k, _ := range r.Attributes() {
+			re, _ := regexp.Compile(`private_ips.[a-zA-Z0-9_]`)
+			if re.MatchString(k) {
+
+				return r.State.Primary.Attributes[k]
+			}
+		}
+	}
+
 	if keyName := os.Getenv("TF_KEY_NAME"); keyName != "" {
 		if ip := r.State.Primary.Attributes[keyName]; ip != "" {
 			return ip
 		}
 	} else {
-		for _, key := range keyNames {
+		for _, key := range keyNames { //////////////////////////////////
 			if ip := r.State.Primary.Attributes[key]; ip != "" {
 				return ip
 			}
