@@ -145,6 +145,7 @@ func (r Resource) Address() string {
 			}
 		}
 	}
+	
 
 	if keyName := os.Getenv("TF_KEY_NAME"); keyName != "" {
 		if ip := r.State.Primary.Attributes[keyName]; ip != "" {
